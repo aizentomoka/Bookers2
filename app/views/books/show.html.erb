@@ -26,6 +26,16 @@
                 <td>
                      <%= @book.body %>
                 </td>
+                
+                <td>
+                   <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %>
+                </td>
+                <td>
+                   <!--<#% if @book.user == current_user %>-->
+                   <%= link_to 'Destroy', book_path(@book), method: :delete, class: "btn btn-sm btn-danger destroy" %>
+                   <!--<#% end %>-->
+                </td>
+                
               </tr>
           
             </tbody>
