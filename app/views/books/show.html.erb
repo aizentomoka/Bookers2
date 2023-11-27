@@ -1,9 +1,9 @@
 <p>
 <%= flash[:notice] %>
 </p>
-
-
 <div class="container">
+  
+ 
   <div class="row">
     <div class="col-md-3">
       <%= render 'info', user: @book.user %>
@@ -32,12 +32,14 @@
                 </td>
                 
                 <td>
-                   <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %>
+                  <% if @book.user == current_user %>
+                     <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %>
+                   <% end %>
                 </td>
                 <td>
-                   <!--<#% if @book.user == current_user %>-->
-                   <%= link_to 'Destroy', book_path(@book), method: :delete, class: "btn btn-sm btn-danger destroy" %>
-                   <!--<#% end %>-->
+                   <% if @book.user == current_user %>
+                     <%= link_to 'Destroy', book_path(@book), method: :delete, class: "btn btn-sm btn-danger destroy" %>
+                   <% end %>
                 </td>
                 
               </tr>
